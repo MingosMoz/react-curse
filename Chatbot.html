@@ -99,10 +99,12 @@
       }
 
       function sendMessage() {
+        if (!inputText.trim()) 
+          return;
         const newChatMessages = [
           ...chatMessages,
           {
-            message: 'test',
+            message: inputText,
             sender: 'user',
             id: crypto.randomUUID()
           }
