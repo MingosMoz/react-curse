@@ -1,18 +1,18 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
-import { formatmoney } from '../utils/money';
+import { formatMoney } from '../utils/money';
 import './HomePage.css';
 
-export function HomePage( { cart}) {
+export function HomePage({ cart }) {
     const [products, setProducts] = useState([]);
-    
+
 
     useEffect(() => {
         axios.get('api/products')
             .then((response) => {
                 setProducts(response.data);
-            });  
+            });
     }, []);
 
 
@@ -46,7 +46,7 @@ export function HomePage( { cart}) {
                                 </div>
 
                                 <div className="product-price">
-                                    {formatmoney(product.priceCents)}
+                                    {formatMoney(product.priceCents)}
                                 </div>
 
                                 <div className="product-quantity-container">
